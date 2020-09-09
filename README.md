@@ -1,6 +1,6 @@
 # matrix-multiplication
 
-A program that illustrates how optimizing for performance can be surprisingly easy.
+A program that illustrates how optimizing for performance can sometimes be surprisingly easy.
 
 This program compares the performance of two algorithms for matrix multiplication. The first algorithm is the naive one, with three nested loops. Here is the source code, written in Java:
 
