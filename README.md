@@ -1,6 +1,6 @@
 # matrix-multiplication
 
-A program that illustrates how optimizing for performance can sometimes be surprisingly easy.
+A program that illustrates how optimizing for performance can be surprisingly easy.
 
 This program compares the performance of two algorithms for matrix multiplication. The first algorithm is the naive one, with three nested loops. Here is the source code, written in Java:
 
@@ -19,7 +19,7 @@ static double[][] naiveMultiply(double[][] A, double[][] B) {
 }
 ```
 
-On my quad-core machine, <b>the second algorithm runs up to 60 times faster than the first</b>. It differs from the first algorithm in two regards:
+On my quad-core machine, <b>the second algorithm can over 60 times faster than the first</b>. It differs from the first algorithm in two regards:
 
 - it replaces the outer loop in the body of `naiveMultiply` with a parallel stream, and
 - it switches the order of the two inner loops.
