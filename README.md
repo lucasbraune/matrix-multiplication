@@ -47,7 +47,7 @@ static double[] multiply(double[] a, double[][] B) {
 }
 ```
 
-The inner-most loop reads sequentially from the rows of a matrix, each of which is stored in an array. By contrast, the inner-most loop of `naiveMultiply` reads from the columns of a matrix, each of which is scattered over multiple arrays. For this reason, `optimizedMultiply` enjoys much better locality of reference than `naiveMultiply`. The resulting speed up shows how much [cache misses](https://en.wikipedia.org/wiki/CPU_cache#Cache_miss) can affect performance!
+The inner-most loop of `multiply` reads from a row of a matrix, whereas the inner-most loop of `naiveMultiply` reads from the columns of a matrix. In both methods, each row of the matrix are stored in single arrays, whereas each column is spread over several arrays. For this reason, `optimizedMultiply` enjoys much better locality of reference than `naiveMultiply`. Looking at the performance measurements below, we see how much [CPU caching](https://en.wikipedia.org/wiki/CPU_cache) can affect performance!
 
 For much more on optimization of matrix multiplication, see the first video lecture of <a href="https://ocw.mit.edu/courses/electrical-engineering-and-computer-science/6-172-performance-engineering-of-software-systems-fall-2018/">this course</a> at MIT.
 
