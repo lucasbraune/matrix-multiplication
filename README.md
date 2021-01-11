@@ -2,7 +2,7 @@
 
 A program that illustrates how optimizing for performance can be surprisingly easy.
 
-This program compares the performance of two algorithms for matrix multiplication. The first algorithm is the naive one, with three nested loops. Here is the source code, written in Java:
+This program compares the performance of two implementations of the naive algorithm for matrix multiplication. The first implementation is a straightforward translation of the textbook definition of matrix multiplication, with three nested loops. Here is the source code, written in Java:
 
 ```java
 static double[][] naiveMultiply(double[][] A, double[][] B) {
@@ -19,7 +19,7 @@ static double[][] naiveMultiply(double[][] A, double[][] B) {
 }
 ```
 
-On my quad-core machine, <b>the second algorithm can over 60 times faster than the first</b>. It differs from the first algorithm in two regards:
+On my quad-core machine, <b>the second implementation can over 60 times faster than the first</b>. It differs from the first implementation in two regards:
 
 - it replaces the outer loop in the body of `naiveMultiply` with a parallel stream, and
 - it switches the order of the two inner loops.
@@ -47,7 +47,7 @@ static double[] multiply(double[] a, double[][] B) {
 }
 ```
 
-The inner-most loop of `multiply` reads from a row of a matrix, whereas the inner-most loop of `naiveMultiply` reads from the columns of a matrix. In both methods, each row of the matrix are stored in single arrays, whereas each column is spread over several arrays. For this reason, `optimizedMultiply` enjoys much better locality of reference than `naiveMultiply`. Looking at the performance measurements below, we see how much [CPU caching](https://en.wikipedia.org/wiki/CPU_cache) can affect performance!
+The inner-most loop of `multiply` reads from a row of a matrix, whereas the inner-most loop of `naiveMultiply` reads from the columns of a matrix. In both methods, each row of the matrix is stored in a single array, whereas each column is spread over several arrays. For this reason, `optimizedMultiply` enjoys much better locality of reference than `naiveMultiply`. Looking at the performance measurements below, we see how much [CPU caching](https://en.wikipedia.org/wiki/CPU_cache) can affect performance!
 
 For much more on optimization of matrix multiplication, see the first video lecture of <a href="https://ocw.mit.edu/courses/electrical-engineering-and-computer-science/6-172-performance-engineering-of-software-systems-fall-2018/">this course</a> at MIT.
 
@@ -71,7 +71,7 @@ The program will generate pairs of random matrices of various sizes, and will mu
 
 # Performance measurements
 
-Here is the output of the program run on a 2020 MacBook Air with a quad-core Intel Core i5:
+Here is a possible output of the program, which I obtained by running it on a 2020 MacBook Air with a quad-core Intel Core i5:
 
 ```
 Time to multiply two N x N matrices
@@ -92,4 +92,3 @@ N = 4096
 - Optimized: 31.296 s 
 - Naive: 2003.425 s 
 ```
-
