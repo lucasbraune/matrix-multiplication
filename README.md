@@ -1,8 +1,8 @@
 # matrix-multiplication
 
-A program that illustrates how optimizing for performance can be surprisingly easy.
+This program compares the performance of two implementations of the naive algorithm for matrix multiplication.
 
-This program compares the performance of two implementations of the naive algorithm for matrix multiplication. The first implementation is a straightforward translation of the textbook definition of matrix multiplication, with three nested loops. Here is the source code, written in Java:
+The first implementation is a straightforward translation of the textbook definition of matrix multiplication, with three nested loops. Here is the source code, written in Java:
 
 ```java
 static double[][] naiveMultiply(double[][] A, double[][] B) {
