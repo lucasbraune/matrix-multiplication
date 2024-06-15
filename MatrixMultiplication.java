@@ -27,10 +27,7 @@ import java.util.concurrent.ThreadLocalRandom;
 import java.util.function.BinaryOperator;
 
 /**
- * A program that illustrates how optimizing for performance can be 
- * surprisingly easy.
- * 
- * <p>The program multiplies randomly initialized matrices of various sizes. 
+ * This program multiplies randomly initialized matrices of various sizes.
  * Each product is computed twice, with two algorithms. The runtimes of the 
  * computations are printed on the standard output stream.
  * 
